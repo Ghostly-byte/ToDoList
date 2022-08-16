@@ -1,9 +1,24 @@
-let addButton = document.getElementById('addtoList')
-let listContainer = document.getElementById('itemContainer');
-let listinput = document.getElementById('inputField')
+window.addEventListener('load',()=>{
+   const addTask = document.getElementById('btnAdd')
+   const inputField = document.getElementById('inputField')
+   const listTasks = document.getElementById('tasks')
 
-addButton.addEventListener('click', e=>{
-    var paragraph = document.createElement('p')
-    paragraph.innerText = listinput.value;
-    listContainer = this.appendChild(paragraph)
+   addTask.addEventListener('click', (e)=>{
+    let paragraph = document.createElement('p')
+    paragraph.innerText = inputField.value
+    listTasks.appendChild(paragraph)
+    
+    inputField.value = null
+    paragraph.addEventListener('click',(c)=>{
+        
+            paragraph.style.textDecoration = "line-through"
+        
+    })
+
+    paragraph.addEventListener('dblclick',(f)=>{
+        listTasks.removeChild(paragraph)
+    })
+
+   })
 })
+
